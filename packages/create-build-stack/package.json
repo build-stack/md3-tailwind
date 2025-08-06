@@ -19,7 +19,8 @@
     "build": "tsup src/index.ts --format esm --target node18 --clean",
     "build:watch": "tsup src/index.ts --format esm --target node18 --watch",
     "prepublishOnly": "npm run build",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "echo 'No linting configured for create-build-stack package'"
   },
   "keywords": [
     "create-app",
