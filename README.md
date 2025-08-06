@@ -1,8 +1,13 @@
-# Build Stack Tailwind
+# Build Stack's MD3 Tailwind
+
+[![CI](https://github.com/build-stack/md3-tailwind/actions/workflows/ci.yml/badge.svg)](https://github.com/build-stack/md3-tailwind/actions/workflows/ci.yml)
+[![Release](https://github.com/build-stack/md3-tailwind/actions/workflows/release.yml/badge.svg)](https://github.com/build-stack/md3-tailwind/actions/workflows/release.yml)
+[![NPM Publish](https://github.com/build-stack/md3-tailwind/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/build-stack/md3-tailwind/actions/workflows/npm-publish.yml)
+[![npm version](https://badge.fury.io/js/@build-stack%2Freact.svg)](https://badge.fury.io/js/@build-stack%2Freact)
 
 A modern Material Design 3 components library built with Tailwind CSS and React.
 
-![Build Stack Logo](https://via.placeholder.com/800x200/6366f1/white?text=Build+Stack+Tailwind)
+![Build Stack Logo](/assets/logos/Build_Stack_Logo.png)
 
 ## ✨ Features
 

@@ -1,7 +1,7 @@
 {
-  "name": "build-stack-monorepo",
+  "name": "md3-tailwind",
   "version": "0.1.0",
-  "description": "Build Stack - Material Design 3 components for modern web development",
+  "description": "Build Stack's - Material Design 3 components with Tailwind CSS for modern web development",
   "private": true,
   "type": "module",
   "workspaces": [
