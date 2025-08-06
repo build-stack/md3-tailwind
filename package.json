@@ -1,0 +1,58 @@
+{
+  "name": "build-stack-monorepo",
+  "version": "0.1.0",
+  "description": "Build Stack - Material Design 3 components for modern web development",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces",
+    "build": "npm run build --workspaces",
+    "build:react": "npm run build --workspace=packages/react",
+    "build:html": "npm run build --workspace=packages/html", 
+    "build:scaffolder": "npm run build --workspace=packages/create-build-stack",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "clean": "npm run clean --workspaces"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "tailwindcss",
+    "material-design",
+    "ui-library",
+    "typescript"
+  ],
+  "author": "Build Stack",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.0",
+    "rollup": "^3.25.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.0.0",
+    "vitest": "^0.34.0"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.0"
+  }
+}

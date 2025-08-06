@@ -1,0 +1,245 @@
+/**
+ * @build-stack/html - Material Design 3 CSS Components
+ * Built with Tailwind CSS for vanilla HTML/JavaScript projects
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Material Design 3 Base Styles */
+@layer base {
+  :root {
+    /* Material Design 3 Color Tokens */
+    --bs-primary: 99 102 241;
+    --bs-primary-rgb: rgb(99, 102, 241);
+    --bs-on-primary: 255 255 255;
+    --bs-primary-container: 218 230 255;
+    --bs-on-primary-container: 49 46 129;
+    
+    --bs-secondary: 139 92 246;
+    --bs-secondary-rgb: rgb(139, 92, 246);
+    --bs-on-secondary: 255 255 255;
+    --bs-secondary-container: 237 233 254;
+    --bs-on-secondary-container: 76 29 149;
+    
+    --bs-surface: 250 250 250;
+    --bs-on-surface: 23 23 23;
+    --bs-surface-variant: 245 245 245;
+    --bs-on-surface-variant: 115 115 115;
+    
+    --bs-error: 239 68 68;
+    --bs-on-error: 255 255 255;
+    --bs-error-container: 254 242 242;
+    --bs-on-error-container: 185 28 28;
+    
+    /* Elevation shadows */
+    --bs-elevation-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    --bs-elevation-2: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+    --bs-elevation-3: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  body {
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Build Stack Components */
+@layer components {
+  /* Button Components */
+  .bs-button {
+    @apply relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer border-0 no-underline;
+  }
+  
+  .bs-button:disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+  
+  .bs-button-filled {
+    background-color: var(--bs-primary-rgb);
+    @apply text-white shadow-md;
+  }
+  
+  .bs-button-filled:hover:not(:disabled) {
+    @apply shadow-lg brightness-110;
+  }
+  
+  .bs-button-filled:active:not(:disabled) {
+    @apply brightness-90;
+  }
+  
+  .bs-button-outlined {
+    border: 2px solid var(--bs-primary-rgb);
+    color: var(--bs-primary-rgb);
+    @apply bg-transparent;
+  }
+  
+  .bs-button-outlined:hover:not(:disabled) {
+    background-color: rgba(var(--bs-primary), 0.1);
+  }
+  
+  .bs-button-outlined:active:not(:disabled) {
+    background-color: rgba(var(--bs-primary), 0.2);
+  }
+  
+  .bs-button-text {
+    color: var(--bs-primary-rgb);
+    @apply bg-transparent;
+  }
+  
+  .bs-button-text:hover:not(:disabled) {
+    background-color: rgba(var(--bs-primary), 0.1);
+  }
+  
+  .bs-button-text:active:not(:disabled) {
+    background-color: rgba(var(--bs-primary), 0.2);
+  }
+  
+  /* Button Sizes */
+  .bs-button-sm {
+    @apply px-4 py-2 text-xs;
+  }
+  
+  .bs-button-lg {
+    @apply px-8 py-4 text-base;
+  }
+  
+  /* Card Components */
+  .bs-card {
+    @apply relative overflow-hidden rounded-xl bg-white transition-shadow duration-200;
+    box-shadow: var(--bs-elevation-1);
+  }
+  
+  .bs-card-elevated {
+    box-shadow: var(--bs-elevation-2);
+  }
+  
+  .bs-card-elevated:hover {
+    box-shadow: var(--bs-elevation-3);
+  }
+  
+  .bs-card-filled {
+    background-color: rgba(var(--bs-surface-variant), 1);
+  }
+  
+  .bs-card-outlined {
+    @apply border border-gray-200;
+    box-shadow: none;
+  }
+  
+  .bs-card-header {
+    @apply relative overflow-hidden;
+  }
+  
+  .bs-card-body {
+    @apply p-6;
+  }
+  
+  .bs-card-footer {
+    @apply px-6 pb-6;
+  }
+  
+  /* TextField Components */
+  .bs-textfield {
+    @apply relative w-full;
+  }
+  
+  .bs-textfield-input {
+    @apply w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-500 transition-colors focus:outline-none;
+    border-color: rgba(var(--bs-on-surface-variant), 0.4);
+  }
+  
+  .bs-textfield-input:focus {
+    border-color: var(--bs-primary-rgb);
+    @apply ring-1;
+    ring-color: var(--bs-primary-rgb);
+  }
+  
+  .bs-textfield-input:invalid {
+    border-color: var(--bs-error);
+  }
+  
+  .bs-textfield-label {
+    @apply absolute -top-2 left-2 bg-white px-1 text-xs font-medium transition-all pointer-events-none;
+    color: rgba(var(--bs-on-surface-variant), 0.8);
+  }
+  
+  .bs-textfield-input:focus + .bs-textfield-label {
+    color: var(--bs-primary-rgb);
+  }
+  
+  .bs-textfield-input:invalid + .bs-textfield-label {
+    color: var(--bs-error);
+  }
+  
+  /* Icon Button */
+  .bs-icon-button {
+    @apply relative inline-flex items-center justify-center w-12 h-12 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer border-0;
+  }
+  
+  .bs-icon-button-filled {
+    background-color: var(--bs-primary-rgb);
+    @apply text-white shadow-md;
+  }
+  
+  .bs-icon-button-outlined {
+    border: 2px solid var(--bs-primary-rgb);
+    color: var(--bs-primary-rgb);
+    @apply bg-transparent;
+  }
+  
+  .bs-icon-button-text {
+    color: var(--bs-primary-rgb);
+    @apply bg-transparent;
+  }
+  
+  /* Ripple Effect */
+  .bs-ripple {
+    @apply absolute inset-0 overflow-hidden rounded-inherit pointer-events-none;
+  }
+  
+  .bs-ripple::before {
+    content: '';
+    @apply absolute inset-0 scale-0 transform rounded-full bg-current opacity-20 transition-transform duration-300 ease-out;
+  }
+  
+  .bs-button:active .bs-ripple::before,
+  .bs-icon-button:active .bs-ripple::before {
+    @apply scale-150;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .bs-elevation-1 {
+    box-shadow: var(--bs-elevation-1);
+  }
+  
+  .bs-elevation-2 {
+    box-shadow: var(--bs-elevation-2);
+  }
+  
+  .bs-elevation-3 {
+    box-shadow: var(--bs-elevation-3);
+  }
+  
+  /* Color utilities */
+  .bs-text-primary {
+    color: var(--bs-primary-rgb);
+  }
+  
+  .bs-text-secondary {
+    color: var(--bs-secondary-rgb);
+  }
+  
+  .bs-bg-primary {
+    background-color: var(--bs-primary-rgb);
+  }
+  
+  .bs-bg-secondary {
+    background-color: var(--bs-secondary-rgb);
+  }
+}
