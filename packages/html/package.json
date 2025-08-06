@@ -19,7 +19,7 @@
     "build:js": "swc ./src/js -d ./dist/js --config-file .swcrc",
     "build:css": "npx tailwindcss -i ./src/css/build-stack.css -o ./dist/css/build-stack.css -m",
     "build:theme": "node scripts/build-theme.js",
-    "copy:assets": "cp -r ./theme ./dist/theme && cp -r ./utils ./dist/utils && cp package.json ./dist && cp README.md ./dist",
+    "copy:assets": "mkdir -p ./dist/theme && cp -r ./theme/* ./dist/theme/ 2>/dev/null || true && cp -r ./utils ./dist/utils && cp package.json ./dist && cp README.md ./dist",
     "build:watch": "npm run build:css -- --watch",
     "prepublishOnly": "npm run build",
     "lint": "echo 'No linting configured for HTML package'"
