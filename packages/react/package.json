@@ -22,7 +22,6 @@
     "copy:assets": "cp -r ./theme ./dist/theme 2>/dev/null || true && cp package.json ./dist && cp README.md ./dist",
     "build:watch": "rollup -c -w",
     "prepublishOnly": "npm run build",
-    "test": "vitest",
     "lint": "eslint src --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0"
   },
   "keywords": [
@@ -55,8 +54,7 @@
     "rollup": "^3.25.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
-    "typescript": "^5.0.0",
-    "vitest": "^0.34.0"
+    "typescript": "^5.0.0"
   },
   "dependencies": {
     "clsx": "^2.0.0",

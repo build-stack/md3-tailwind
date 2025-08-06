@@ -19,7 +19,6 @@
     "build": "tsup src/index.ts --format esm --target node18 --clean",
     "build:watch": "tsup src/index.ts --format esm --target node18 --watch",
     "prepublishOnly": "npm run build",
-    "test": "vitest",
     "lint": "echo 'No linting configured for create-build-stack package'"
   },
   "keywords": [
@@ -50,7 +49,6 @@
     "@types/validate-npm-package-name": "^4.0.0",
     "tsup": "^7.2.0",
     "tsx": "^3.12.7",
-    "typescript": "^5.0.0",
-    "vitest": "^0.34.0"
+    "typescript": "^5.0.0"
   }
 }
