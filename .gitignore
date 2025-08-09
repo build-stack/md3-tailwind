@@ -52,3 +52,7 @@ storybook-static
 .parcel-cache
 .npm
 .yarn/cache
+
+# Temporary/accidental files
+tall
+hell*
