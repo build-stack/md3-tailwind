@@ -1,156 +1,54 @@
-# Build Stack's MD3 Tailwind
+MD3 Tailwind (React + Tailwind CSS v4)
 
-[![CI](https://github.com/build-stack/md3-tailwind/actions/workflows/ci.yml/badge.svg)](https://github.com/build-stack/md3-tailwind/actions/workflows/ci.yml)
-[![Release](https://github.com/build-stack/md3-tailwind/actions/workflows/release.yml/badge.svg)](https://github.com/build-stack/md3-tailwind/actions/workflows/release.yml)
-[![NPM Publish](https://github.com/build-stack/md3-tailwind/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/build-stack/md3-tailwind/actions/workflows/npm-publish.yml)
-[![npm version](https://badge.fury.io/js/@build-stack%2Freact.svg)](https://badge.fury.io/js/@build-stack%2Freact)
+Minimal Material Design 3 primitives for React 19, built on Tailwind CSS v4.1+ with CSS-first theming.
 
-A modern Material Design 3 components library built with Tailwind CSS and React.
-
-![Build Stack Logo](/assets/logos/Build_Stack_Logo.png)
-
-## ✨ Features
-
-- 🎨 **Material Design 3** - Latest Material Design specifications
-- ⚡ **Tailwind CSS** - Utility-first CSS framework for rapid development
-- 🚀 **TypeScript** - Full type safety and excellent DX
-- 📱 **Responsive** - Mobile-first design approach
-- ♿ **Accessible** - WCAG 2.1 AA compliant components
-- 🎭 **Customizable** - Easy theming and component customization
-- 📦 **Tree-shakable** - Import only what you need
-
-## 📦 Installation
+Install
 
 ```bash
-npm install @build-stack/tailwind
-# or
-yarn add @build-stack/tailwind
-# or
-pnpm add @build-stack/tailwind
+npm install @build-stack/md3-tailwind
+# Tailwind v4 runtime (build-time) deps
+npm install -D tailwindcss @tailwindcss/postcss postcss
 ```
 
-## 🚀 Quick Start
+Peer dependencies
 
-1. **Install dependencies**:
-```bash
-npm install @build-stack/tailwind tailwindcss
-```
+- react ^19 and react-dom ^19
+- Tailwind CSS v4.1+ via PostCSS plugin
 
-2. **Configure Tailwind CSS** in your `tailwind.config.js`:
+Tailwind setup (v4)
+
+1) Add the Tailwind PostCSS plugin in `postcss.config.mjs`:
+
 ```js
-const { buildStackTheme } = require('@build-stack/tailwind/theme');
-
-module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}',
-    './node_modules/@build-stack/tailwind/**/*.{js,ts,jsx,tsx}'
-  ],
-  theme: {
-    extend: buildStackTheme
-  },
-  plugins: [],
-}
+export default { plugins: { "@tailwindcss/postcss": {} } };
 ```
 
-3. **Import the CSS** in your main CSS file:
+2) Import Tailwind and the MD3 tokens in your app CSS (e.g., `src/index.css`):
+
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@build-stack/md3-tailwind-core/tokens.css";
+@import "@build-stack/md3-tailwind-core/utilities.css"; /* optional utilities like .text-display-lg */
 ```
 
-4. **Start using components**:
-```jsx
-import { Button, Card, TextField } from '@build-stack/tailwind';
+Usage (React)
 
-function App() {
+```tsx
+import { Display, Body } from "@build-stack/md3-tailwind";
+
+export default function App() {
   return (
-    <div className="p-6">
-      <Card className="p-6">
-        <h1 className="text-2xl font-bold mb-4">Welcome to Build Stack</h1>
-        <TextField 
-          label="Email" 
-          placeholder="Enter your email"
-          className="mb-4"
-        />
-        <Button variant="filled">
-          Get Started
-        </Button>
-      </Card>
-    </div>
+    <main className="p-6">
+      <Display size="large">Headline</Display>
+      <Body size="medium" className="text-gray-600">Body text</Body>
+    </main>
   );
 }
 ```
 
-## 📚 Documentation
+Notes
 
-Visit our [documentation site](https://build-stack.dev) for:
-- 📖 Complete API reference
-- 🎨 Design system guidelines
-- 🛠️ Customization guides
-- 💡 Examples and tutorials
+- CSS-first theming: tokens are defined with `@theme` and consumed via utilities.
+- Consumers manage React and Tailwind versions (kept as peer dependencies).
 
-## 🧩 Components
 
-### Actions
-- `Button` - Material Design buttons with multiple variants
-- `IconButton` - Icon-only buttons
-- `FloatingActionButton` - FAB component
-
-### Inputs
-- `TextField` - Text input with Material Design styling
-- `Select` - Dropdown selection component
-- `Checkbox` - Checkbox input
-- `RadioButton` - Radio button input
-- `Switch` - Toggle switch
-
-### Layout
-- `Card` - Material Design cards
-- `AppBar` - Top app bar component
-- `NavigationDrawer` - Side navigation
-- `BottomNavigation` - Bottom navigation bar
-
-### Feedback
-- `Dialog` - Modal dialogs
-- `Snackbar` - Toast notifications
-- `ProgressIndicator` - Loading indicators
-- `Badge` - Notification badges
-
-## 🎨 Theming
-
-Build Stack Tailwind supports Material Design 3 dynamic theming:
-
-```jsx
-import { ThemeProvider } from '@build-stack/tailwind';
-
-const customTheme = {
-  colors: {
-    primary: '#6366f1',
-    secondary: '#8b5cf6',
-    // ... more colors
-  }
-};
-
-function App() {
-  return (
-    <ThemeProvider theme={customTheme}>
-      {/* Your app */}
-    </ThemeProvider>
-  );
-}
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
-
-## 📄 License
-
-MIT © Build Stack Team
-
-## 🔗 Links
-
-- [Documentation](https://build-stack.dev)
-- [GitHub](https://github.com/build-stack/tailwind)
-- [NPM](https://www.npmjs.com/package/@build-stack/tailwind)
-- [Discord Community](https://discord.gg/build-stack)
