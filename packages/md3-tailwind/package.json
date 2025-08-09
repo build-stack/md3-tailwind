@@ -22,7 +22,7 @@
     "typescript": "^5.4.0"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup",
     "lint": "echo skip",
     "test": "echo skip"
   }
