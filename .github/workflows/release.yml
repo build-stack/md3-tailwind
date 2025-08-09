@@ -19,12 +19,16 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - name: Setup npm authentication
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
+          cat ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Debug npm auth
         run: |
           echo "Testing npm authentication..."
+          npm config list
           npm whoami
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
