@@ -1,23 +1,29 @@
 {
   "name": "@build-stack/md3-tailwind",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "publishConfig": { "access": "public" },
-  "dependencies": { "@build-stack/md3-tailwind-core": "workspace:*" },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@build-stack/md3-tailwind-core": "workspace:*"
+  },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.1.0"
   },
-  "devDependencies": { "tsup": "^8.0.0", "typescript": "^5.4.0" },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "lint": "echo skip",
     "test": "echo skip"
   }
 }
-
