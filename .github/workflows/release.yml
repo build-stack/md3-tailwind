@@ -25,11 +25,11 @@ jobs:
           cat .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Debug npm auth
+      - name: Debug npm auth (non-blocking)
         run: |
           echo "Testing npm authentication..."
-          npm config list
-          npm whoami --userconfig .npmrc
+          npm config list || true
+          npm whoami --userconfig .npmrc || true
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create Release Pull Request or Publish to npm
