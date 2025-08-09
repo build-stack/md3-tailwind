@@ -54,5 +54,5 @@ storybook-static
 .yarn/cache
 
 # Temporary/accidental files
-tall
+tall*
 hell*

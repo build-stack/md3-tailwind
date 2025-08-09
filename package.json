@@ -2,20 +2,38 @@
   "name": "md3-tailwind-root",
   "private": true,
   "packageManager": "pnpm@9.15.9",
-  "engines": { "node": ">=20", "pnpm": ">=9" },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
   "scripts": {
     "build": "turbo run build",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "turbo": "^2.0.0",
+    "@build-stack/md3-tailwind-core": "workspace:*",
     "@changesets/cli": "^2.27.0",
-    "typescript": "^5.4.0",
+    "@storybook/addon-a11y": "^9.1.1",
+    "@storybook/addon-docs": "^9.1.1",
+    "@storybook/react-vite": "^9.1.1",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^24.2.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint-plugin-storybook": "9.1.1",
+    "postcss": "^8.4.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "storybook": "^9.1.1",
+    "tailwindcss": "^4.1.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0",
+    "vite": "^7.1.1"
   }
 }
