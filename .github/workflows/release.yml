@@ -25,11 +25,10 @@ jobs:
           cat .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Debug npm auth (non-blocking)
+      - name: Debug npm auth via dry-run publish (non-blocking)
         run: |
-          echo "Testing npm authentication..."
-          npm config list || true
-          npm whoami --userconfig .npmrc || true
+          echo "Testing npm authentication via dry-run publish..."
+          pnpm -F @build-stack/md3-tailwind-core publish --dry-run --access public --no-git-checks || true
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create Release Pull Request or Publish to npm
