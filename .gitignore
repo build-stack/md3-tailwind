@@ -1,3 +1,5 @@
+resources/
+inspiration/
 node_modules/
 dist/
 .turbo/

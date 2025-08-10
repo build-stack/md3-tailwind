@@ -15,6 +15,110 @@
   --leading-body-md: 24px;
   --text-body-sm: 12px;
   --leading-body-sm: 20px;
+
+  /* Button Design Tokens */
+  --color-primary: #6750a4;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #625b71;
+  --color-secondary-foreground: #ffffff;
+  --color-outline: #79747e;
+  --color-surface: #fffbfe;
+  --color-surface-foreground: #1c1b1f;
+  --color-surface-variant: #e7e0ec;
+
+  /* State layer opacities (typical MD suggested values) */
+  --md-state-hover-opacity: 0.08;
+  --md-state-focus-opacity: 0.12;
+  --md-state-pressed-opacity: 0.12;
+
+  /* Elevation shadows (simplified) */
+  --md-elevation-1-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+  --md-elevation-2-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.1);
+
+  /* Shape */
+  --md-sys-shape-corner-large: var(--radius-md);
+
+  /* Button typography (MD3 Label Large by default) */
+  --md-comp-button-label-size: 0.875rem;          /* 14px */
+  --md-comp-button-label-line-height: 1.25rem;    /* 20px */
+  --md-comp-button-label-weight: 600;             /* medium/semi-bold */
+
+  /* Button density (container heights & horizontal padding) */
+  --md-comp-button-container-height-sm: 36px;
+  --md-comp-button-container-height-md: 40px;     /* default */
+  --md-comp-button-container-height-lg: 48px;     /* ensures >= 48px target */
+  --md-comp-button-padding-x-sm: 12px;
+  --md-comp-button-padding-x-md: 16px;
+  --md-comp-button-padding-x-lg: 20px;
+
+  /* Button outline width */
+  --md-comp-button-outline-width: 1px;
+
+  /* Button icon spacing */
+  --md-comp-button-icon-gap: 8px;
+
+  /* Focus ring */
+  --md-comp-focus-ring-color: var(--md-sys-color-primary);
+  --md-comp-focus-ring-offset: var(--md-sys-color-surface);
+
+  /* Disabled visuals */
+  --md-disabled-container-opacity: 0.12;
+  --md-disabled-content-opacity: 0.38;
+  
+  /* Button spacing */
+  --spacing-btn-sm: 8px 16px;
+  --spacing-btn-md: 10px 24px;
+  --spacing-btn-lg: 14px 32px;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
 }
 
+/* Ensure MD3 aliases are always defined on :root (outside @theme) */
+:root {
+  --md-sys-color-primary: var(--color-primary);
+  --md-sys-color-on-primary: var(--color-primary-foreground);
+  --md-sys-color-secondary-container: var(--color-secondary);
+  --md-sys-color-on-secondary-container: var(--color-secondary-foreground);
+  --md-sys-color-surface: var(--color-surface);
+  --md-sys-color-on-surface: var(--color-surface-foreground);
+  --md-sys-color-outline: var(--color-outline);
+}
 
+/* Manual dark mode class - controlled via ThemeProvider */
+.dark {
+  --color-primary: #d0bcff;
+  --color-primary-foreground: #381e72;
+  --color-secondary: #ccc2dc;
+  --color-secondary-foreground: #332d41;
+  --color-surface: #141218;
+  --color-surface-foreground: #e6e0e9;
+  --color-surface-variant: #49454f;
+
+  /* Update MD aliases for dark */
+  --md-sys-color-primary: var(--color-primary);
+  --md-sys-color-on-primary: var(--color-primary-foreground);
+  --md-sys-color-secondary-container: var(--color-secondary);
+  --md-sys-color-on-secondary-container: var(--color-secondary-foreground);
+  --md-sys-color-surface: var(--color-surface);
+  --md-sys-color-on-surface: var(--color-surface-foreground);
+  --md-sys-color-outline: var(--color-outline);
+}
+
+/* Optional: System preference as fallback only when no class is set */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.dark) {
+    --color-primary: #d0bcff;
+    --color-primary-foreground: #381e72;
+    --color-secondary: #ccc2dc;
+    --color-secondary-foreground: #332d41;
+    --color-destructive: #ffb4ab;
+    --color-destructive-foreground: #690005;
+    --color-surface: #141218;
+    --color-surface-foreground: #e6e0e9;
+    --color-surface-variant: #49454f;
+  }
+}

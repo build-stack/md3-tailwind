@@ -6,4 +6,59 @@
   line-height: var(--leading-display-lg);
 }
 
+/* MD3-like ripple effect utilities */
+.md3-ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.md3-ripple {
+  position: absolute;
+  border-radius: 9999px; /* fully rounded */
+  transform: scale(0);
+  pointer-events: none;
+  background-color: currentColor; /* uses current text color */
+  opacity: 0.18; /* base ripple opacity */
+  animation: md3-ripple 500ms ease-out forwards;
+}
+
+@keyframes md3-ripple {
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* MD3 state layer helper */
+.md3-state-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--transition-fast, 150ms) ease-out;
+}
+
+/* State layer visibility on interaction */
+.md3-interactive:hover .md3-state-layer {
+  opacity: var(--md-state-hover-opacity, 0.08);
+}
+
+.md3-interactive:focus-visible .md3-state-layer {
+  opacity: var(--md-state-focus-opacity, 0.12);
+}
+
+.md3-interactive:active .md3-state-layer {
+  opacity: var(--md-state-pressed-opacity, 0.12);
+}
+
+/* Disabled helpers (applied via utility classes in component) */
+.md3-disabled-container {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-disabled-container-opacity), transparent);
+}
+.md3-disabled-content {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-disabled-content-opacity), transparent);
+}
+
 

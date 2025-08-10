@@ -10,7 +10,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@build-stack/md3-tailwind-core": "workspace:*"
+    "@build-stack/md3-tailwind-core": "workspace:*",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^19.0.0",
