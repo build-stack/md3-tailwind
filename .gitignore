@@ -1,3 +1,8 @@
+resource/
+resource/ui/
+
+docs/
+
 node_modules/
 dist/
 .turbo/
