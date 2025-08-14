@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Display, Body } from './../index';
+import { Display, Body } from './index';
 
 const meta: Meta = {
   title: 'Typography/Primitives',

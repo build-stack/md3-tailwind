@@ -41,6 +41,7 @@
   "devDependencies": {
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "material-symbols": "^0.34.1",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0"
   },
