@@ -21,3 +21,6 @@ export type { SwitchProps } from "./switch";
 // Icons
 export { Icon } from "./style/icons";
 export type { IconProps } from "./style/icons";
+
+// Typography
+export { Display, Body } from "./style/typography";

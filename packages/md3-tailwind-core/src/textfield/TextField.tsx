@@ -97,7 +97,6 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 
     // Calculate label positioning based on variant and density
     const getLabelPosition = useMemo(() => {
-      console.log(variant, density, isLabelFloating);
       if (!isLabelFloating) {
         if (variant === 'filled') {
           return density === 'sm' ? 'translate-y-1.5' : density === 'md' ? 'translate-y-1.5' : 'translate-y-2.5';
