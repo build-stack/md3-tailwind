@@ -15,7 +15,7 @@ export { Radio, radioVariants } from "./radio";
 export type { RadioProps } from "./radio";
 
 // Switch
-export { Switch, switchVariants, thumbVariants } from "./switch";
+export { Switch, trackVariants, handleVariants, stateLayerVariants } from "./switch";
 export type { SwitchProps } from "./switch";
 
 // Icons
