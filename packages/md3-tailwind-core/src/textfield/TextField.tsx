@@ -3,18 +3,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { useMemo } from "react";
 
 const textFieldVariants = cva(
-  "w-full px-4 py-3 text-base leading-6 transition-all duration-200 ease-out focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-transparent",
+  "w-full px-4 py-3.5 text-base leading-6 transition-all duration-200 ease-out focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-transparent",
   {
     variants: {
       variant: {
-        filled: "bg-slate-100 border-b-2 border-slate-300 rounded-t-md text-slate-950 hover:bg-slate-200 focus:bg-slate-50 focus:border-violet-500 focus:border-b-2",
+        filled: "bg-slate-100 pt-5 pb-2 border-b-2 border-slate-300 rounded-t-md text-slate-950 hover:bg-slate-200 focus:bg-slate-50 focus:border-violet-500 focus:border-b-2",
         outlined: "bg-transparent border-0 rounded-md text-slate-950 hover:border-slate-400 focus:border-violet-500",
-        standard: "bg-transparent border-b-2 border-slate-300 text-slate-950 hover:border-slate-400 focus:border-violet-500 focus:border-b-2",
+        standard: "bg-transparent pt-5 pb-2 border-b-2 border-slate-300 text-slate-950 hover:border-slate-400 focus:border-violet-500 focus:border-b-2",
       },
       density: {
-        sm: "px-3 pt-5 pb-2 text-sm leading-5",
-        md: "px-4 pt-5.5 pb-2 text-base leading-6",
-        lg: "px-6 pt-5 pb-2 text-lg leading-7",
+        sm: "px-3 text-sm leading-5",
+        md: "px-4 text-base leading-6",
+        lg: "px-6 text-lg leading-7",
       },
       state: {
         default: "",
@@ -99,21 +99,21 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
     const getLabelPosition = useMemo(() => {
       if (!isLabelFloating) {
         if (variant === 'filled') {
-          return density === 'sm' ? 'translate-y-1.5' : density === 'md' ? 'translate-y-1.5' : 'translate-y-2.5';
+          return density === 'sm' ? 'translate-y-1.5' : density === 'md' ? 'translate-y-1.5' : 'translate-y-1.75';
         } else if (variant === 'outlined') {
-          return density === 'sm' ? 'translate-y-1.5' : density === 'md' ? 'translate-y-2' : 'translate-y-2.5';
-        } else { // standard
-          return density === 'sm' ? 'translate-y-1.5' : density === 'md' ? 'translate-y-2' : 'translate-y-2.5';
+          return density === 'sm' ? 'translate-y-1.5' : density === 'md' ? 'translate-y-2' : 'translate-y-1.75';
+        } else {
+          return density === 'sm' ? 'translate-y-1.5' : density === 'md' ? 'translate-y-2' : 'translate-y-1.75';
         }
       } else {
         // Floating position - stay within input bounds, just above the text
         if (variant === 'filled') {
-          return density === 'sm' ? '-translate-y-0.5 scale-75' : density === 'md' ? '-translate-y-1 scale-75' : '-translate-y-1.5 scale-75';
+          return density === 'sm' ? '-translate-y-1.25 text-xs' : density === 'md' ? '-translate-y-1.25 text-xs' : '-translate-y-1.25 text-xs';
         } else if (variant === 'outlined') {
           // For outlined variant, move label up to overlap with the top border
-          return density === 'sm' ? '-translate-y-4 scale-75' : density === 'md' ? '-translate-y-4 scale-75' : '-translate-y-4 scale-75';
+          return density === 'sm' ? '-translate-y-4 text-xs' : density === 'md' ? '-translate-y-4 text-xs' : '-translate-y-4 text-xs';
         } else { // standard
-          return density === 'sm' ? '-translate-y-0.5 scale-75' : density === 'md' ? '-translate-y-1 scale-75' : '-translate-y-1.5 scale-75';
+          return density === 'sm' ? '-translate-y-1.25 text-xs' : density === 'md' ? '-translate-y-1.25 text-xs' : '-translate-y-1.25 text-xs';
         }
       }
     }, [variant, density, isLabelFloating]);
@@ -178,23 +178,23 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
               }`}
             >
               <legend 
-                className={`text-xs text-transparent float-none w-auto overflow-hidden p-0 leading-[11px] h-[11px] text-[0.75em] whitespace-nowrap transition-all duration-100 ease-out ${
+                className={`${leftIcon ? 'ml-6' : ''} text-xs text-transparent float-none w-auto overflow-hidden p-0  whitespace-nowrap transition-all duration-100 ease-out ${
                   isLabelFloating ? 'max-w-full delay-50' : 'max-w-[0.01px]'
                 }`}
               >
-                <span className="px-1.5 inline-block opacity-0 visible">
+                <span className="px-1.5 inline-block opacity-0 visible ">
                   {label}
                 </span>
               </legend>
             </fieldset>
           )}
-          {label && (
+          {label && ( 
             <label 
               className={`
                 absolute pointer-events-none transition-all duration-200 ease-out origin-left
                 ${getLabelLeftPosition()}
                 ${getLabelPosition}
-                ${isLabelFloating 
+                ${isLabelFloating
                   ? 'text-sm text-violet-600' 
                   : 'text-base text-slate-500'
                 }
