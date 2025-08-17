@@ -11,7 +11,13 @@ export { Checkbox, checkboxVariants } from "./checkbox";
 export type { CheckboxProps } from "./checkbox";
 
 // Radio
-export { Radio, radioVariants } from "./radio";
+export { 
+  Radio, 
+  radioContainerVariants, 
+  radioSelectionVariants, 
+  radioStateLayerVariants,
+  radioFocusRingVariants
+} from "./radio";
 export type { RadioProps } from "./radio";
 
 // Switch
