@@ -39,20 +39,13 @@ Progress key: [ ] not started, [x] done, [-] in progress
 Notes
 - Keep these in root devDependencies; packages rely on the root toolchain.
 
-### Core package (`@build-stack/md3-tailwind-core`)
+### Package (`@build-stack/md3-tailwind`)
 - [x] Minimal TS build with `tsup`
 - [ ] (optional) CSS lint: `stylelint` + `stylelint-config-standard` for `tokens.css`/`utilities.css`
 - [x] No JS motion runtime; use CSS tokens for durations/easings
 
-### React package (`@build-stack/md3-tailwind`)
-- [ ] Utilities: `cn` helper; polymorphic `as` type helper
-- [ ] Motion strategy
-  - [x] Default: CSS-only transitions + respect `prefers-reduced-motion`
-  - [ ] Optional: `@radix-ui/react-presence` for exit animations (tiny)
-  - [ ] Optional: `motion` (motion-one) for specific effects (kept optional)
-  - [ ] Avoid heavy defaults (e.g., framer-motion) in free package; consider Pro-only or optional peer
-- [ ] A11y / positioning (for overlays, later phase)
-  - [ ] Optional: `@floating-ui/react` for menus/tooltips/dialog positioning
+### (Removed) React wrapper package
+Consolidated into the single package above.
 
 - ### Docs & examples
 - [ ] Storybook setup
@@ -68,12 +61,6 @@ Notes
 - [ ] Cache installs/builds; upload artifacts on failures
 - [ ] (optional) Canary workflow on `develop` with `next` dist-tag
 
-### Optional later
-- [ ] Chromatic for visual regression on Storybook
-- [ ] `focus-trap` (if not hand-rolled) for dialogs/menus
-- [ ] Portal helper (React 19 APIs may suffice)
-
 ### Decisions / guidelines
-- [ ] Prefer CSS-first for theming/motion; keep JS motion optional
 - [ ] Keep free package lightweight and tree-shakeable
 - [ ] Add heavier deps (data grid, advanced overlays, complex motion) to Pro or make optional peers

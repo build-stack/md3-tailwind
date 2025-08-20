@@ -138,8 +138,8 @@ export default { plugins: { "@tailwindcss/postcss": {} } };
 
 ```css
 @import "tailwindcss";
-@import "@build-stack/md3-tailwind-core/tokens.css";
-@import "@build-stack/md3-tailwind-core/utilities.css"; /* optional utilities like .text-display-lg */
+@import "@build-stack/md3-tailwind/tokens.css";
+@import "@build-stack/md3-tailwind/utilities.css"; /* optional utilities like .text-display-lg */
 ```
 
 <br />

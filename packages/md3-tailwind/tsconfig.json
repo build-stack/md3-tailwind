@@ -4,7 +4,9 @@
     "outDir": "./dist",
     "declaration": true,
     "declarationMap": true,
-    "noEmit": false
+    "noEmit": false,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["react", "react-dom"]
   },
   "include": ["src"]
 }

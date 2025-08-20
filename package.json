@@ -17,8 +17,8 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "@build-stack/md3-tailwind-core": "workspace:*",
     "@changesets/cli": "^2.27.0",
+    "@mdx-js/loader": "^3.1.0",
     "@radix-ui/react-slot": "^1.2.3",
     "@storybook/addon-a11y": "^9.1.1",
     "@storybook/addon-docs": "^9.1.1",

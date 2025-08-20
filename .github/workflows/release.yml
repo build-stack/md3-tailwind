@@ -28,7 +28,7 @@ jobs:
       - name: Debug npm auth via dry-run publish (non-blocking)
         run: |
           echo "Testing npm authentication via dry-run publish..."
-          pnpm -F @build-stack/md3-tailwind-core publish --dry-run --access public --no-git-checks || true
+          pnpm -F @build-stack/md3-tailwind publish --dry-run --access public --no-git-checks || true
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create Release Pull Request or Publish to npm

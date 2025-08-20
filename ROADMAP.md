@@ -4,7 +4,7 @@ Progress key: [ ] not started, [x] done, [-] in progress
 
 ### Scope and goals
 - [ ] Deliver a comprehensive, accessible MD3 React suite on Tailwind v4.1+
-- [ ] Keep split: `@build-stack/md3-tailwind-core` (tokens/primitives) and `@build-stack/md3-tailwind` (wrappers)
+- [ ] Consolidate into a single package: `@build-stack/md3-tailwind`
 - [ ] Prepare for a private Pro package via GitHub Packages
 
 ### Cross-cutting requirements

@@ -6,7 +6,11 @@
       "dependsOn": ["^build"]
     },
     "lint": {},
-    "test": {}
+    "test": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
   }
 }
 

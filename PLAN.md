@@ -1,7 +1,7 @@
 ## MD3 Tailwind Monorepo Plan (Turborepo + Changesets + Tailwind v4.1+)
 
 ### Objectives
-- **Create a new monorepo layout** with two publishable packages: `@build-stack/md3-tailwind-core` (tokens/primitives) and `@build-stack/md3-tailwind` (free re-exports/wrappers).
+- **Create a single publishable package**: `@build-stack/md3-tailwind` (Components Library + CSS assets).
 - **Adopt PNPM 9, Node 20, Turborepo, and Changesets** with automated releases via GitHub Actions.
 - **Target Tailwind v4.1+** and React 19 peer deps.
 - **Keep current packages (`packages/react`, `packages/html`) as-is** for now, without publishing them.
@@ -94,7 +94,7 @@ packages:
   - [x] Configure `.changeset/config.json` with `baseBranch: "main"` and `access: "public"`.
 - [x] Commit baseline.
 
-### 2) Create package: `@build-stack/md3-tailwind-core`
+### 2) Create package: `@build-stack/md3-tailwind`
 - [x] Add `packages/md3-tailwind-core/package.json`:
   - **type**: `module`
   - **exports**: main/module/types + `./tokens.css` and `./utilities.css` (CSS-first v4.1)
@@ -108,12 +108,12 @@ packages:
   - [x] `src/typography/Body.tsx`
   - [x] `tokens.css` (Tailwind v4.1 `@theme` tokens)
   - [x] `utilities.css` (CSS utilities that consume tokens)
-- [x] Build: `pnpm --filter @build-stack/md3-tailwind-core build` → verify `dist/` emits `*.mjs`, `*.cjs`, `*.d.ts`.
+- [x] Build: `pnpm --filter @build-stack/md3-tailwind build` → verify `dist/` emits `*.mjs`, `*.cjs`, `*.d.ts`.
 
 Package `package.json` (reference)
 ```json
 {
-  "name": "@build-stack/md3-tailwind-core",
+  "name": "@build-stack/md3-tailwind",
   "version": "0.0.0",
   "private": false,
   "type": "module",
@@ -144,7 +144,7 @@ Package `package.json` (reference)
 
 -### 3) Create package: `@build-stack/md3-tailwind` (FREE wrappers)
 - [x] Add `packages/md3-tailwind/package.json`:
-  - **dependencies**: `@build-stack/md3-tailwind-core@0.0.0`
+  - **dependencies**: `@build-stack/md3-tailwind@0.0.0`
   - **peerDependencies**: `react@^19`, `react-dom@^19`, `tailwindcss@^4.1.0`
   - **devDependencies**: `tsup`, `typescript`
   - **scripts**: `build` via tsup
@@ -163,7 +163,7 @@ Package `package.json` (reference)
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "publishConfig": { "access": "public" },
-  "dependencies": { "@build-stack/md3-tailwind-core": "0.0.0" },
+  "dependencies": { "@build-stack/md3-tailwind": "0.0.0" },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -214,12 +214,12 @@ jobs:
 
 ### 5) Verification & QA
 - [x] `pnpm install`
-- [ ] `pnpm build` (Turbo builds both new packages; `dist/**` present)
+- [ ] `pnpm build` (Turbo builds the package; `dist/**` present)
 - [ ] Smoke-test Tailwind v4.1 tokens locally (minimal consumer):
   - [ ] Create `postcss.config.mjs` with `@tailwindcss/postcss` plugin.
-  - [ ] In CSS entry, `@import "tailwindcss"; @import "@build-stack/md3-tailwind-core/tokens.css"; @import "@build-stack/md3-tailwind-core/utilities.css";` and verify `.text-display-lg` and token-driven styles.
+  - [ ] In CSS entry, `@import "tailwindcss"; @import "@build-stack/md3-tailwind/tokens.css"; @import "@build-stack/md3-tailwind/utilities.css";` and verify `.text-display-lg` and token-driven styles.
   - [ ] Confirm React 19 type compatibility.
-- [ ] Add initial Changeset for `0.0.1` releases of both packages.
+- [ ] Add initial Changeset for `0.0.1` release of the package.
 
 ### 6) Legacy packages
 - [x] Removed old `packages/react`, `packages/html`, and `packages/create-build-stack` along with related workflows/configs.

@@ -1,12 +1,11 @@
 # @build-stack/md3-tailwind
 
-Thin wrapper that re-exports curated components from `@build-stack/md3-tailwind-core`.
+Core tokens, utilities, and minimal primitives for MD3 on Tailwind CSS v4.1+ and React 19.
 
 ## Install
 
 ```bash
 npm install @build-stack/md3-tailwind
-# Tailwind v4 runtime (build-time) deps
 npm install -D tailwindcss @tailwindcss/postcss postcss
 ```
 
@@ -22,8 +21,8 @@ Import Tailwind and the MD3 tokens/utilities in your app CSS (e.g. `src/index.cs
 
 ```css
 @import "tailwindcss";
-@import "@build-stack/md3-tailwind-core/tokens.css";
-@import "@build-stack/md3-tailwind-core/utilities.css"; /* optional utilities like .text-display-lg */
+@import "@build-stack/md3-tailwind/tokens.css";
+@import "@build-stack/md3-tailwind/utilities.css"; /* optional utilities like .text-display-lg */
 ```
 
 ## Usage (React)
@@ -31,7 +30,7 @@ Import Tailwind and the MD3 tokens/utilities in your app CSS (e.g. `src/index.cs
 ```tsx
 import { Display, Body } from "@build-stack/md3-tailwind";
 
-export default function App() {
+export default function Example() {
   return (
     <main className="p-6">
       <Display size="large">Headline</Display>
@@ -42,5 +41,5 @@ export default function App() {
 ```
 
 ## Notes
-- Packages expose CSS via `tokens.css` and optional utilities via `utilities.css`.
+- CSS-first theming with Tailwind v4 `@theme` tokens.
 - React 19 and Tailwind 4.1+ are peer dependencies.

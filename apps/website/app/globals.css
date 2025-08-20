@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "@build-stack/md3-tailwind/tokens.css";
+@import "@build-stack/md3-tailwind/utilities.css";
+
+/* App-level base styles */
+html, body { height: 100%; }
+body { color: var(--color-on-surface); background: var(--color-surface); }
+
+
