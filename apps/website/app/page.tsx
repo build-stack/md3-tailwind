@@ -1,5 +1,5 @@
 import { Display, Body, Button } from "@build-stack/md3-tailwind";
-import { Header } from "./components";
+import { Header, ComponentsShowcase } from "./components";
 
 export default function Page() {
   return (
@@ -89,6 +89,9 @@ export default function Page() {
           </div>
         </div>
       </div>
+
+      {/* Components Showcase */}
+      <ComponentsShowcase />
     </main>
     </>
   );

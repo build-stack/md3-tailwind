@@ -12,7 +12,8 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "@build-stack/md3-tailwind": "workspace:*",
-    "@mdx-js/react": "^3.1.0"
+    "@mdx-js/react": "^3.1.0",
+    "material-symbols": "^0.34.1"
   },
   "devDependencies": {
     "tailwindcss": "^4.1.0",

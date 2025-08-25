@@ -2,6 +2,11 @@
 /* @import "@build-stack/md3-tailwind/styles.css"; */
 @source "../../../packages/md3-tailwind/src/**/*";
 
+/* Material Symbols fonts from npm package */
+@import "material-symbols/rounded.css";
+@import "material-symbols/outlined.css";
+@import "material-symbols/sharp.css";
+
 /* App-level base styles */
 html, body { height: 100%; }
 body { color: rgb(28 25 23); }
