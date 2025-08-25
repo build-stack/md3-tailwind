@@ -11,18 +11,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    },
-    "./tokens.css": {
-      "default": "./tokens.css"
-    },
-    "./utilities.css": {
-      "default": "./utilities.css"
     }
   },
   "files": [
     "dist",
-    "tokens.css",
-    "utilities.css",
     "README.md"
   ],
   "sideEffects": false,
@@ -42,6 +34,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "material-symbols": "^0.34.1",
+    "postcss-cli": "^11.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0"
   },

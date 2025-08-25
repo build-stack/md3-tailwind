@@ -7,9 +7,9 @@ type Props = React.HTMLAttributes<HTMLElement> & {
 };
 
 const sizeMap = {
-  large: "text-base leading-7",
-  medium: "text-sm leading-6",
-  small: "text-xs leading-5"
+  large: "text-lg leading-relaxed",
+  medium: "text-base leading-relaxed",
+  small: "text-sm leading-relaxed"
 } as const;
 
 export function Body({ size = "medium", as: Tag = "p", className, ...rest }: Props) {
